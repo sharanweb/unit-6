@@ -1,28 +1,19 @@
-
-let btn = document.getElementById("btn");
-let timerId;
-let eventCount = 0;
-let counter=0;
-btn.addEventListener("click",()=>{
-    let event = document.getElementById("event");
-    event.innerText = `No of times event triggered...  ${++eventCount}`
-    debounce(main,1000);
-})
-
-const makeCall = () =>{
-    let parent = document.getElementById("container");
-    parent.innerText = `No of times Debounce triggered... ${++counter}`
-}
-
-const main = () =>{
-    makeCall();
-}
-
-const debounce= (func,delay) =>{
-    if(timerId){
-        clearTimeout(timerId);
+const throttle = (func, delay) => {
+    let last_time = 0;
+    return (...arguments) => {
+        const now_time = new Date().getTime();
+        if(now_time - last_time < delay){
+            return
+        }
+        last_time = now;
+        return func(...arguments);
     }
-   timerId = setTimeout(()=>{
-        func()
-    },delay)
+
 }
+let butt = document.getElementById("btn");
+butt.addEventListener("click", throttle((e) => {
+    console.log(" You Have Clicked Me")
+}, 3000))
+
+////////////////////////////
+
