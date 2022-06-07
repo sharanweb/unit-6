@@ -28,11 +28,11 @@ export const List = () =>{
     
 
     const getData = ()=>{
-        axios.get(`http://localhost:5000/products/?page=${page}&pagesize=${page_size}&filter=${filter}&sort=${sort}`).then(({ data }) => {
+        axios.get(`https://frontback1.herokuapp.com/products/?page=${page}&pagesize=${page_size}&filter=${filter}&sort=${sort}`).then(({ data }) => {
       setData(data.product);
       setPagenum(data.total_pages);
     })
-    // console.log(data);
+    console.log(data);
     }
     useEffect(()=>{
       getData();
