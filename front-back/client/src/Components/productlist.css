@@ -1,0 +1,14 @@
+.mainbox{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+}
+.img{
+    width: 200px;
+}
+
+.product__card{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

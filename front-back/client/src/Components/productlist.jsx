@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import "./productlist.css"
 export const List = () =>{
     const [data, setData] = useState([]);
 
@@ -20,7 +20,7 @@ export const List = () =>{
 
 
     return (
-        <>
+        <div className="mainbox">
         {
             data.map((el)=>(
                 <div className="product__card" key={el._id}>
@@ -34,7 +34,7 @@ export const List = () =>{
                 </div>
             ))
         }
-        </>
+        </div>
     )
 
 }
