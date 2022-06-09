@@ -14,11 +14,10 @@ function loadScript(src) {
 		document.body.appendChild(script)
 	})
 }
-
 const __DEV__ = document.domain === 'localhost'
 
 function App() {
-	const [name, setName] = useState('ambuj')
+	const [name, setName] = useState("Sharan Dooganavar")
 
 	async function handleRazorpay() {
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
@@ -28,12 +27,10 @@ function App() {
 			return
 		}
 
-		const data = await fetch('http://localhost:5000/razorpay', { method: 'POST' }).then((t) =>
-			t.json()
+		const data = await fetch('http://localhost:5000/razorpay', { method: 'POST' })
+		   .then((t) =>t.json()
 		)
-
-		console.log(data)
-
+		// console.log(data)
 		const options = {
 			key: __DEV__ ? 'rzp_test_jYawQnDvwClYIp' : 'PRODUCTION_KEY',
 			currency: data.currency,
@@ -55,7 +52,6 @@ function App() {
 		const paymentObject = new window.Razorpay(options)
 		paymentObject.open()
 	}
-
 	return (
 		<div className="App">
 			<header className="App-header">
